@@ -35,9 +35,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Two-step estimate forms (.est-form): step 1 = contact + address (required),
   // step 2 = optional fence details, then Submit.
+  // Both steps share one grid cell (so the form keeps the taller step's height); only the
+  // active one is visible and interactive.
   function showStep(form, n) {
     form.querySelectorAll('.est-step').forEach(function (step) {
-      step.hidden = step.getAttribute('data-step') !== String(n);
+      var active = step.getAttribute('data-step') === String(n);
+      step.classList.toggle('is-active', active);
+      step.inert = !active;
+      step.setAttribute('aria-hidden', active ? 'false' : 'true');
     });
   }
   window.estimateStep = showStep;
@@ -62,7 +67,7 @@ document.addEventListener('DOMContentLoaded', function () {
     form.querySelector('.est-back').addEventListener('click', function () { showStep(form, 1); });
     // Enter on step 1 moves to step 2 instead of submitting (capture runs before the Formspree handler)
     form.addEventListener('submit', function (e) {
-      if (!step1.hidden) { e.preventDefault(); e.stopImmediatePropagation(); goNext(); }
+      if (step1.classList.contains('is-active')) { e.preventDefault(); e.stopImmediatePropagation(); goNext(); }
     }, true);
   });
 
@@ -78,8 +83,9 @@ document.addEventListener('DOMContentLoaded', function () {
       modal.querySelectorAll('[data-fs-active]').forEach(function (el) { el.removeAttribute('data-fs-active'); });
       modal.hidden = false;
       document.documentElement.classList.add('modal-open');
-      var first = modal.querySelector('.est-step:not([hidden]) input');
-      if (first) setTimeout(function () { first.focus(); }, 50);
+      // focus during the tap itself so phones open the keyboard (and their AutoFill bar) right away
+      var first = modal.querySelector('.est-step.is-active input');
+      if (first) first.focus();
     };
     var closeModal = function () {
       modal.hidden = true;

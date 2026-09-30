@@ -80,28 +80,30 @@
   <p>Start with your address, then add a few optional details about the fence you have in mind.</p>
   <div class="fs-success" data-fs-success>Thanks! Your request is in — we'll be in touch shortly to schedule your free estimate.</div>
   <form id="contact-quote-form" class="est-form">
-    <div class="est-step" data-step="1">
+    <div class="est-steps">
+    <div class="est-step is-active" data-step="1">
       <div class="est-progress"><b>Step 1 of 2</b> · Your contact info &amp; property</div>
       <div class="form-row full"><div><label for="contact-full_name">Full Name</label><input id="contact-full_name" type="text" name="full_name" data-fs-field required autocomplete="name"><span class="fs-field-error" data-fs-error="full_name"></span></div></div>
       <div class="form-row"><div><label for="contact-phone">Phone</label><input id="contact-phone" type="tel" name="phone" data-fs-field required autocomplete="tel"><span class="fs-field-error" data-fs-error="phone"></span></div><div><label for="contact-email">Email</label><input id="contact-email" type="email" name="email" data-fs-field required autocomplete="email"><span class="fs-field-error" data-fs-error="email"></span></div></div>
-      <div class="form-row full"><div><label for="contact-street_address">Street Address</label><input id="contact-street_address" type="text" name="street_address" data-fs-field required autocomplete="street-address"><span class="fs-field-error" data-fs-error="street_address"></span></div></div>
+      <div class="form-row full"><div><label for="contact-street_address">Street Address</label><input id="contact-street_address" type="text" name="street_address" data-fs-field required autocomplete="address-line1"><span class="fs-field-error" data-fs-error="street_address"></span></div></div>
       <div class="form-row est-cityzip"><div><label for="contact-city">City</label><input id="contact-city" type="text" name="city" data-fs-field required autocomplete="address-level2"><span class="fs-field-error" data-fs-error="city"></span></div><div><label for="contact-zip">ZIP</label><input id="contact-zip" type="text" name="zip" data-fs-field required inputmode="numeric" pattern="[0-9]{5}" maxlength="5" title="5-digit ZIP code" autocomplete="postal-code"><span class="fs-field-error" data-fs-error="zip"></span></div></div>
       <button class="btn btn-red btn-block est-next" type="button">Next: Fence Details &rarr;</button>
     </div>
-    <div class="est-step" data-step="2" hidden>
+    <div class="est-step" data-step="2" inert aria-hidden="true">
       <div class="est-progress"><b>Step 2 of 2</b> · A few quick details <span>(optional)</span></div>
       <fieldset class="est-choices"><legend>New fence or repair?</legend><div><label class="est-choice"><input type="radio" name="job_type" value="New fence"><span>New fence</span></label><label class="est-choice"><input type="radio" name="job_type" value="Repair"><span>Repair</span></label></div></fieldset>
       <div class="form-row full"><div><label for="contact-fence_type">Fence material</label>
-        <select id="contact-fence_type" name="fence_type"><option value="">Choose one</option><option value="Not sure yet">Not sure yet</option><option value="Vinyl">Vinyl</option><option value="Wood">Wood</option><option value="Aluminum">Aluminum</option><option value="Chain link">Chain link</option><option value="Composite">Composite</option><option value="Steel / ornamental">Steel / ornamental</option></select></div></div>
+        <select id="contact-fence_type" name="fence_type" autocomplete="off"><option value="">Choose one</option><option value="Not sure yet">Not sure yet</option><option value="Vinyl">Vinyl</option><option value="Wood">Wood</option><option value="Aluminum">Aluminum</option><option value="Chain link">Chain link</option><option value="Composite">Composite</option><option value="Steel / ornamental">Steel / ornamental</option></select></div></div>
       <div class="form-row">
-        <div><label for="contact-linear_feet">Approx. feet of fence</label><input id="contact-linear_feet" type="number" name="linear_feet" min="0" step="10" inputmode="numeric" placeholder="e.g. 150"></div>
-        <div><label for="contact-gates">Number of gates</label><select id="contact-gates" name="gates"><option value="">Choose</option><option>0</option><option>1</option><option>2</option><option>3+</option></select></div>
+        <div><label for="contact-linear_feet">Approx. feet of fence</label><input id="contact-linear_feet" type="number" name="linear_feet" min="0" step="10" inputmode="numeric" placeholder="e.g. 150" autocomplete="off"></div>
+        <div><label for="contact-gates">Number of gates</label><select id="contact-gates" name="gates" autocomplete="off"><option value="">Choose</option><option>0</option><option>1</option><option>2</option><option>3+</option></select></div>
       </div>
       <fieldset class="est-choices"><legend>Remove &amp; haul away an old fence?</legend><div><label class="est-choice"><input type="radio" name="remove_old_fence" value="Yes"><span>Yes</span></label><label class="est-choice"><input type="radio" name="remove_old_fence" value="No"><span>No</span></label></div></fieldset>
       <div class="est-actions">
+        <button class="est-back" type="button">&larr; Back</button>
         <button class="btn btn-red" type="submit" data-fs-submit-btn>Submit</button>
       </div>
-      <button class="est-back" type="button">&larr; Back</button>
+    </div>
     </div>
     <input type="hidden" name="_subject" value="[northtampafencing.com] New quote request">
     <input type="hidden" name="source" value="northtampafencing.com">
@@ -211,28 +213,30 @@
     <div class="est-modal-body">
       <div class="fs-success" data-fs-success>Thanks! Your request is in — we'll call or text you back shortly.</div>
       <form id="modal-quote-form" class="est-form">
-    <div class="est-step" data-step="1">
+    <div class="est-steps">
+    <div class="est-step is-active" data-step="1">
       <div class="est-progress"><b>Step 1 of 2</b> · Your contact info &amp; property</div>
       <div class="form-row full"><div><label for="modal-full_name">Full Name</label><input id="modal-full_name" type="text" name="full_name" data-fs-field required autocomplete="name"><span class="fs-field-error" data-fs-error="full_name"></span></div></div>
       <div class="form-row"><div><label for="modal-phone">Phone</label><input id="modal-phone" type="tel" name="phone" data-fs-field required autocomplete="tel"><span class="fs-field-error" data-fs-error="phone"></span></div><div><label for="modal-email">Email</label><input id="modal-email" type="email" name="email" data-fs-field required autocomplete="email"><span class="fs-field-error" data-fs-error="email"></span></div></div>
-      <div class="form-row full"><div><label for="modal-street_address">Street Address</label><input id="modal-street_address" type="text" name="street_address" data-fs-field required autocomplete="street-address"><span class="fs-field-error" data-fs-error="street_address"></span></div></div>
+      <div class="form-row full"><div><label for="modal-street_address">Street Address</label><input id="modal-street_address" type="text" name="street_address" data-fs-field required autocomplete="address-line1"><span class="fs-field-error" data-fs-error="street_address"></span></div></div>
       <div class="form-row est-cityzip"><div><label for="modal-city">City</label><input id="modal-city" type="text" name="city" data-fs-field required autocomplete="address-level2"><span class="fs-field-error" data-fs-error="city"></span></div><div><label for="modal-zip">ZIP</label><input id="modal-zip" type="text" name="zip" data-fs-field required inputmode="numeric" pattern="[0-9]{5}" maxlength="5" title="5-digit ZIP code" autocomplete="postal-code"><span class="fs-field-error" data-fs-error="zip"></span></div></div>
       <button class="btn btn-red btn-block est-next" type="button">Next: Fence Details &rarr;</button>
     </div>
-    <div class="est-step" data-step="2" hidden>
+    <div class="est-step" data-step="2" inert aria-hidden="true">
       <div class="est-progress"><b>Step 2 of 2</b> · A few quick details <span>(optional)</span></div>
       <fieldset class="est-choices"><legend>New fence or repair?</legend><div><label class="est-choice"><input type="radio" name="job_type" value="New fence"><span>New fence</span></label><label class="est-choice"><input type="radio" name="job_type" value="Repair"><span>Repair</span></label></div></fieldset>
       <div class="form-row full"><div><label for="modal-fence_type">Fence material</label>
-        <select id="modal-fence_type" name="fence_type"><option value="">Choose one</option><option value="Not sure yet">Not sure yet</option><option value="Vinyl">Vinyl</option><option value="Wood">Wood</option><option value="Aluminum">Aluminum</option><option value="Chain link">Chain link</option><option value="Composite">Composite</option><option value="Steel / ornamental">Steel / ornamental</option></select></div></div>
+        <select id="modal-fence_type" name="fence_type" autocomplete="off"><option value="">Choose one</option><option value="Not sure yet">Not sure yet</option><option value="Vinyl">Vinyl</option><option value="Wood">Wood</option><option value="Aluminum">Aluminum</option><option value="Chain link">Chain link</option><option value="Composite">Composite</option><option value="Steel / ornamental">Steel / ornamental</option></select></div></div>
       <div class="form-row">
-        <div><label for="modal-linear_feet">Approx. feet of fence</label><input id="modal-linear_feet" type="number" name="linear_feet" min="0" step="10" inputmode="numeric" placeholder="e.g. 150"></div>
-        <div><label for="modal-gates">Number of gates</label><select id="modal-gates" name="gates"><option value="">Choose</option><option>0</option><option>1</option><option>2</option><option>3+</option></select></div>
+        <div><label for="modal-linear_feet">Approx. feet of fence</label><input id="modal-linear_feet" type="number" name="linear_feet" min="0" step="10" inputmode="numeric" placeholder="e.g. 150" autocomplete="off"></div>
+        <div><label for="modal-gates">Number of gates</label><select id="modal-gates" name="gates" autocomplete="off"><option value="">Choose</option><option>0</option><option>1</option><option>2</option><option>3+</option></select></div>
       </div>
       <fieldset class="est-choices"><legend>Remove &amp; haul away an old fence?</legend><div><label class="est-choice"><input type="radio" name="remove_old_fence" value="Yes"><span>Yes</span></label><label class="est-choice"><input type="radio" name="remove_old_fence" value="No"><span>No</span></label></div></fieldset>
       <div class="est-actions">
+        <button class="est-back" type="button">&larr; Back</button>
         <button class="btn btn-red" type="submit" data-fs-submit-btn>Submit</button>
       </div>
-      <button class="est-back" type="button">&larr; Back</button>
+    </div>
     </div>
     <input type="hidden" name="_subject" value="[northtampafencing.com] New quote request">
     <input type="hidden" name="source" value="northtampafencing.com">

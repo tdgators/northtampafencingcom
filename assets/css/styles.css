@@ -583,3 +583,23 @@ html.modal-open, html.modal-open body { overflow: hidden; }
   .est-modal-panel .form-row { grid-template-columns: 1fr; gap: 10px; }
   .est-modal-panel .form-row.est-cityzip { grid-template-columns: 1fr 110px; }
 }
+
+/* Estimate form: both steps occupy the same grid cell, so the form is always as tall as the
+   taller step (no jump when switching). One spacing rhythm and one control height for both. */
+.est-steps { display: grid; }
+.est-step { grid-area: 1 / 1; display: flex; flex-direction: column; gap: 12px; min-width: 0; }
+.est-step:not(.is-active) { visibility: hidden; }
+.est-step .est-progress { margin: 0 0 2px; }
+.est-form .est-step .form-row { margin: 0; gap: 12px; }
+.est-form .est-step label, .est-form .est-choices legend { margin: 0 0 5px; padding: 0; line-height: 1.3; }
+.est-choices { margin: 0; }
+.est-form .est-step input:not([type=radio]), .est-form .est-step select {
+  height: 46px; padding: 0 14px; box-sizing: border-box; font-size: .95rem;
+}
+.est-choice span { height: 46px; display: inline-flex; align-items: center; padding: 0 18px; }
+.est-step .est-next, .est-step .est-actions { margin-top: auto; }
+.est-actions { margin-top: auto; }
+.est-actions { display: flex; align-items: center; gap: 14px; flex-wrap: nowrap; }
+.est-actions .btn { flex: 1 1 auto; }
+.est-back { flex: none; padding: 0 4px; }
+.est-form .fs-field-error:empty { display: none; }
