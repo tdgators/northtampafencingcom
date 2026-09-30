@@ -33,6 +33,71 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
+  // Two-step estimate forms (.est-form): step 1 = contact + address (required),
+  // step 2 = optional fence details, then Submit.
+  function showStep(form, n) {
+    form.querySelectorAll('.est-step').forEach(function (step) {
+      step.hidden = step.getAttribute('data-step') !== String(n);
+    });
+  }
+  window.estimateStep = showStep;
+  document.querySelectorAll('.est-form').forEach(function (form) {
+    var step1 = form.querySelector('.est-step[data-step="1"]');
+    var step2 = form.querySelector('.est-step[data-step="2"]');
+    function step1Valid() {
+      var fields = step1.querySelectorAll('input, select, textarea');
+      for (var i = 0; i < fields.length; i++) {
+        if (!fields[i].checkValidity()) { fields[i].reportValidity(); return false; }
+      }
+      return true;
+    }
+    function goNext() {
+      if (!step1Valid()) return;
+      showStep(form, 2);
+      var first = step2.querySelector('input, select');
+      if (first) first.focus({ preventScroll: true });
+      if (form.getBoundingClientRect().top < 80) form.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+    form.querySelector('.est-next').addEventListener('click', goNext);
+    form.querySelector('.est-back').addEventListener('click', function () { showStep(form, 1); });
+    // Enter on step 1 moves to step 2 instead of submitting (capture runs before the Formspree handler)
+    form.addEventListener('submit', function (e) {
+      if (!step1.hidden) { e.preventDefault(); e.stopImmediatePropagation(); goNext(); }
+    }, true);
+  });
+
+  // Estimate pop-up: any button that links to the contact page opens the form in place
+  // (full-screen on phones). Plain links (menu, footer) still navigate to the page.
+  var modal = document.getElementById('estimate-modal');
+  if (modal) {
+    var lastFocus = null;
+    var openModal = function () {
+      lastFocus = document.activeElement;
+      setNav(false);
+      // start fresh: clear a previous submission's thank-you or error message
+      modal.querySelectorAll('[data-fs-active]').forEach(function (el) { el.removeAttribute('data-fs-active'); });
+      modal.hidden = false;
+      document.documentElement.classList.add('modal-open');
+      var first = modal.querySelector('.est-step:not([hidden]) input');
+      if (first) setTimeout(function () { first.focus(); }, 50);
+    };
+    var closeModal = function () {
+      modal.hidden = true;
+      document.documentElement.classList.remove('modal-open');
+      if (lastFocus) lastFocus.focus();
+    };
+    document.addEventListener('click', function (e) {
+      var link = e.target.closest('a.btn, a.header-quote');
+      if (!link) return;
+      var href = link.getAttribute('href') || '';
+      if (/\/contact-us\/?$/.test(href.split('#')[0])) { e.preventDefault(); openModal(); }
+    });
+    modal.querySelectorAll('[data-close]').forEach(function (el) { el.addEventListener('click', closeModal); });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && !modal.hidden) closeModal();
+    });
+  }
+
   // FAQ accordion
   document.querySelectorAll('.faq-item').forEach(function (item) {
     var q = item.querySelector('.faq-q');
