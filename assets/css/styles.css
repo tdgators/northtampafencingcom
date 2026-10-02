@@ -603,3 +603,23 @@ html.modal-open, html.modal-open body { overflow: hidden; }
 .est-actions .btn { flex: 1 1 auto; }
 .est-back { flex: none; padding: 0 4px; }
 .est-form .fs-field-error:empty { display: none; }
+
+/* HOA approval guide */
+.hoa-guide .hoa-step h2 { display: flex; align-items: center; gap: 12px; }
+.hoa-num {
+  flex: none; width: 34px; height: 34px; border-radius: 50%; background: var(--red); color: var(--white);
+  display: inline-flex; align-items: center; justify-content: center; font-size: 1rem; font-family: var(--font-body);
+}
+.hoa-local { margin: 24px 0 8px; background: var(--alt-bg); border-left: 5px solid var(--accent); }
+.hoa-local h2 { font-size: 1.2rem; margin-top: 0; }
+.hoa-guide .glance .hoa-print { margin-top: 10px; }
+.hoa-disclaimer { margin-top: 2.2em; font-style: italic; }
+@media print {
+  .topbar, .site-header, .nav-scrim, .mobile-call-bar, .site-footer, .section-navy, .cta-row, .hoa-print,
+  .glance .btn, .est-modal { display: none !important; }
+  .page-hero { background: none !important; color: #000; padding: 0 0 12px; }
+  .page-hero h1, .page-hero .lead { color: #000 !important; }
+  .guide { display: block; }
+  .guide-side { position: static; margin-top: 20px; }
+  .card { box-shadow: none !important; border: 1px solid #ccc; }
+}
