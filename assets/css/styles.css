@@ -33,6 +33,7 @@
   --section-pad: 64px;
   --accent: var(--blue);
   --accent-dark: var(--navy-dark);
+  --gold: #c9a227;
   font-size: 16px;
 }
 
@@ -622,4 +623,77 @@ html.modal-open, html.modal-open body { overflow: hidden; }
   .guide { display: block; }
   .guide-side { position: static; margin-top: 20px; }
   .card { box-shadow: none !important; border: 1px solid #ccc; }
+}
+
+/* ---------- Detail layout: cards ---------- */
+.cards-intro { max-width: 780px; margin: 0 auto 34px; text-align: center; }
+.cards-intro p:first-child { font-size: 1.12rem; color: var(--ink); }
+.hl-title { text-align: center; font-size: 1.2rem; margin-bottom: 16px; }
+.hl-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin-bottom: 34px; }
+.hl-tile { display: flex; gap: 10px; align-items: flex-start; background: var(--alt-bg); border-radius: var(--radius); padding: 14px 16px; font-weight: 600; color: var(--navy); font-size: .93rem; }
+.hl-tile span { flex: none; width: 22px; height: 22px; border-radius: 50%; background: var(--accent); color: var(--white); display: inline-flex; align-items: center; justify-content: center; font-size: .75rem; }
+.topic-card h2 { font-size: 1.25rem; }
+.topic-grid { margin-top: 8px; }
+
+/* ---------- Detail layout: longform ---------- */
+.longform .container { max-width: 820px; }
+.lf-highlights { border: 1px solid var(--gray-200); border-radius: var(--radius); padding: 16px 20px; margin-bottom: 30px; background: var(--alt-bg); }
+.lf-highlights strong { display: block; color: var(--navy); margin-bottom: 8px; }
+.lf-highlights ul { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+.lf-highlights li { background: var(--white); border: 1px solid var(--gray-200); border-radius: 999px; padding: 6px 14px; font-size: .86rem; font-weight: 600; color: var(--ink); }
+.lf-article > p:first-child { font-size: 1.12rem; color: var(--ink); }
+.lf-article h2 { font-size: 1.45rem; margin-top: 1.5em; }
+.lf-photo { aspect-ratio: 16 / 7; margin: 26px 0; }
+.lf-cta { margin-top: 30px; display: flex; gap: 18px; align-items: center; flex-wrap: wrap; }
+.lf-cta .glance-phone { display: inline; margin: 0; }
+
+/* ---------- Homepage neighborhoods ---------- */
+a.hood-card { display: block; color: inherit; }
+a.hood-card:hover { color: inherit; }
+a.hood-card .more { font-weight: 700; font-size: .86rem; color: var(--blue); }
+
+/* ---------- Theme: classic (Carrollwood) — traditional serif, navy & gold, cream sections ---------- */
+.theme-classic .card { border-top: 3px solid var(--gold); }
+.theme-classic .card .icon { background: var(--gold); color: var(--white); }
+.theme-classic .section-head h2 { position: relative; padding-bottom: 14px; }
+.theme-classic .section-head h2::after { content: "◆"; display: block; color: var(--gold); font-size: .8rem; margin-top: 8px; }
+.theme-classic .hero-panel { border-color: rgba(201,162,39,.5); }
+.theme-classic .hl-tile span { background: var(--gold); }
+.theme-classic .section-navy { background: var(--accent-dark); border-top: 4px solid var(--gold); }
+
+/* ---------- Theme: modern (Westchase) — bold uppercase sans, charcoal, square edges ---------- */
+.theme-modern .card, .theme-modern .tile-img, .theme-modern .hero-panel, .theme-modern .form-card,
+.theme-modern .warranty-callout, .theme-modern .hl-tile, .theme-modern .lf-highlights, .theme-modern .est-modal-panel { border-radius: 2px; }
+.theme-modern .card { box-shadow: none; border: 1px solid var(--gray-200); border-left: 4px solid var(--ink); }
+.theme-modern .card:hover { border-left-color: var(--red); }
+.theme-modern .card .icon { background: var(--ink); color: var(--white); border-radius: 2px; }
+.theme-modern .eyebrow { letter-spacing: .2em; font-size: .72rem; }
+.theme-modern h3 { text-transform: none; letter-spacing: 0; }
+.theme-modern .chip, .theme-modern .badge, .theme-modern .est-choice span, .theme-modern .lf-highlights li { border-radius: 2px; }
+.theme-modern .section-navy { background: var(--accent-dark); }
+
+/* ---------- Theme: coastal (South Tampa) — refined serif, bay teal, sand sections ---------- */
+.theme-coastal .page-hero { border-bottom: 5px solid var(--accent); }
+.theme-coastal .card { border: 1px solid #e3dccd; box-shadow: none; border-radius: 6px; }
+.theme-coastal .card .icon { background: transparent; border: 1px solid var(--accent); color: var(--accent); border-radius: 50%; }
+.theme-coastal .eyebrow { font-variant: small-caps; text-transform: lowercase; letter-spacing: .1em; font-size: .95rem; }
+.theme-coastal .section-head h2::after { content: ""; display: block; width: 90px; height: 2px; background: var(--accent); margin: 16px auto 0; }
+.theme-coastal .section-navy { background: var(--accent-dark); }
+
+/* ---------- Theme: fresh (Starkey) — friendly rounded type, green & sky, soft tiles ---------- */
+.theme-fresh .card, .theme-fresh .tile-img, .theme-fresh .hero-panel, .theme-fresh .form-card,
+.theme-fresh .warranty-callout, .theme-fresh .hl-tile, .theme-fresh .lf-highlights, .theme-fresh .est-modal-panel { border-radius: 20px; }
+.theme-fresh .card { border: none; background: var(--alt-bg); box-shadow: none; }
+.theme-fresh .card:hover { box-shadow: 0 8px 26px rgba(30,90,60,.12); }
+.theme-fresh .card .icon { background: var(--accent); color: var(--white); border-radius: 50%; }
+.theme-fresh .section-alt { background: var(--white); }
+.theme-fresh .section-alt .card { background: var(--alt-bg); }
+.theme-fresh .eyebrow { background: rgba(46,125,50,.1); color: var(--accent); padding: 4px 12px; border-radius: 999px; letter-spacing: .06em; }
+.theme-fresh .hero .eyebrow, .theme-fresh .page-hero .eyebrow { background: rgba(255,255,255,.14); color: var(--hero-eyebrow); }
+.theme-fresh .section-navy { background: var(--accent-dark); }
+.theme-fresh .guide { grid-template-columns: 300px minmax(0, 1fr); }
+.theme-fresh .guide-side { order: -1; }
+@media (max-width: 980px) {
+  .theme-fresh .guide { grid-template-columns: 1fr; }
+  .theme-fresh .guide-side { order: 0; }
 }
