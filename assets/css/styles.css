@@ -725,8 +725,20 @@ a.hood-card .more { font-weight: 700; font-size: .86rem; color: var(--blue); }
 a.review-link { display: block; color: inherit; }
 a.review-link .more { font-weight: 700; font-size: .88rem; color: var(--blue); }
 .review-quotes { margin-top: 24px; }
-.review-quote blockquote { margin: 0 0 10px; font-size: 1.02rem; color: var(--ink); }
-.review-quote figcaption { font-weight: 700; color: var(--navy); font-size: .9rem; }
+.review-quote { margin: 0; display: flex; flex-direction: column; }
+.review-quote blockquote { margin: 0 0 14px; font-size: 1.02rem; color: var(--ink); flex: 1; }
+.review-quote figcaption { color: var(--navy); font-size: .9rem; border-top: 1px solid var(--gray-200); padding-top: 10px; }
+.review-quote figcaption strong { display: block; }
+.review-quote figcaption span { color: var(--gray-600, #5b6575); font-size: .82rem; }
+.stars { color: #f5a623; letter-spacing: 2px; font-size: 1.05rem; margin-bottom: 8px; }
+.stars b { color: var(--navy); letter-spacing: 0; margin-left: 4px; }
+a.review-link .fb-mark { color: var(--navy); letter-spacing: 0; font-weight: 700; }
+.review-note { text-align: center; font-size: .85rem; color: var(--gray-600, #5b6575); margin: 16px 0 0; }
+.fin-facts { margin-top: 8px; }
+.fin-fact { text-align: center; }
+.fin-big { font-family: var(--font-head); font-weight: 800; font-size: 1.45rem; color: var(--navy); margin-bottom: 6px; }
+.fin-example { text-align: center; max-width: 720px; margin: 22px auto 0; font-size: .95rem; color: var(--gray-600, #5b6575); }
+.fin-links { margin: 12px 0 0; font-weight: 700; font-size: .9rem; }
 .leave-review { margin-top: 28px; text-align: center; background: var(--alt-bg); }
 .financing-notes { margin-top: 28px; }
 .care-grid { margin: 14px 0 10px; }
