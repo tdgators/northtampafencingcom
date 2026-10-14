@@ -697,3 +697,51 @@ a.hood-card .more { font-weight: 700; font-size: .86rem; color: var(--blue); }
   .theme-fresh .guide { grid-template-columns: 1fr; }
   .theme-fresh .guide-side { order: 0; }
 }
+
+/* Trust strip under the homepage hero */
+.trust-strip { background: var(--white); border-bottom: 1px solid var(--gray-200); }
+.trust-row { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0; }
+.trust-item { padding: 18px 14px; text-align: center; border-right: 1px solid var(--gray-200); }
+.trust-item:last-child { border-right: 0; }
+.trust-item strong { display: block; color: var(--navy); font-size: .95rem; font-family: var(--font-head); }
+.trust-item span { display: block; font-size: .8rem; color: var(--gray-500); margin-top: 2px; }
+@media (max-width: 900px) {
+  .trust-row { grid-template-columns: repeat(2, 1fr); }
+  .trust-item { border-right: 0; border-bottom: 1px solid var(--gray-200); }
+  .trust-item:last-child { grid-column: 1 / -1; border-bottom: 0; }
+}
+
+/* Hero background video (THEME hero_video); poster image shows first and for reduced motion */
+.hero-has-video { position: relative; overflow: hidden; }
+.hero-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; }
+.hero-has-video::before { content: ""; position: absolute; inset: 0; z-index: 1;
+  background: linear-gradient(100deg, rgba(10,24,45,.88) 0%, rgba(10,24,45,.65) 50%, rgba(10,24,45,.35) 100%); }
+.hero-has-video.hero-centered::before { background: linear-gradient(180deg, rgba(10,24,45,.55) 0%, rgba(10,24,45,.8) 100%); }
+.hero-has-video > .container { position: relative; z-index: 2; }
+@media (prefers-reduced-motion: reduce) { .hero-video { display: none; } }
+
+/* Reviews, financing, care */
+.reviews-intro { font-size: 1.08rem; text-align: center; max-width: 720px; margin: 0 auto 28px; }
+a.review-link { display: block; color: inherit; }
+a.review-link .more { font-weight: 700; font-size: .88rem; color: var(--blue); }
+.review-quotes { margin-top: 24px; }
+.review-quote blockquote { margin: 0 0 10px; font-size: 1.02rem; color: var(--ink); }
+.review-quote figcaption { font-weight: 700; color: var(--navy); font-size: .9rem; }
+.leave-review { margin-top: 28px; text-align: center; background: var(--alt-bg); }
+.financing-notes { margin-top: 28px; }
+.care-grid { margin: 14px 0 10px; }
+.care-grid .card h3 { margin-bottom: 8px; }
+
+/* ---------- Photo bands (home page lifestyle images) ---------- */
+.photo-band { position: relative; min-height: clamp(340px, 42vw, 520px); display: flex; align-items: center; overflow: hidden; color: var(--white); background: var(--navy-dark); }
+.photo-band > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.photo-band::before { content: ""; position: absolute; inset: 0; z-index: 1; background: linear-gradient(90deg, rgba(8,18,36,.78) 0%, rgba(8,18,36,.45) 45%, rgba(8,18,36,0) 75%); }
+.photo-band .container { position: relative; z-index: 2; width: 100%; }
+.photo-band-text { max-width: 480px; padding: 48px 0; }
+.photo-band-text h2 { color: var(--white); font-size: clamp(1.6rem, 3.2vw, 2.3rem); margin-bottom: .35em; }
+.photo-band-text p { color: rgba(255,255,255,.9); font-size: 1.08rem; margin: 0 0 1.4em; }
+@media (max-width: 700px) {
+  .photo-band { align-items: flex-end; }
+  .photo-band::before { background: linear-gradient(0deg, rgba(8,18,36,.85) 0%, rgba(8,18,36,.55) 55%, rgba(8,18,36,.1) 100%); }
+  .photo-band-text { padding: 140px 0 36px; }
+}
